@@ -1,0 +1,17 @@
+version : '3'
+
+services:
+  jenkins:
+    # Dockerfile 에서 Build한 이미지를 사용 
+    build: .
+    container_name: jenkins
+    # Host의 자원사용 허용 
+    privileged: true
+    restart: always
+    ports:
+    - 8080:8080
+    volumes:
+    # jenkins_home 바인딩 상황에 맞게 변경할 것 
+    - ./jenkins_home:/var/jenkins_home
+    # Host OS와 docker.sock 공유 
+    - /var/run/docker.sock:/var/run/docker.sock:rw

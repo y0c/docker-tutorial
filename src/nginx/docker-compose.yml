@@ -1,0 +1,10 @@
+version : '3'
+
+services:
+  web:
+    image: nginx
+    volumes:
+      #Nginx site conf 주로 가상호스트 설정 
+      - ./conf/site.conf:/etc/nginx/conf.d/site.conf:ro
+    ports:
+      - "80:80"
