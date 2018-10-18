@@ -1,0 +1,7 @@
+version: "3"
+services:
+  redis:
+    environment:
+     - PORT='${PORT}'
+    image: debian-redis 
+    network_mode: host
